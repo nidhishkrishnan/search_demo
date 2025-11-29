@@ -1,0 +1,6 @@
+langchain
+langchain-community
+langchain-chroma
+langchain-ollama
+rank_bm25
+chromadb
