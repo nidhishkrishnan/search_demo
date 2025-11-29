@@ -22,18 +22,27 @@ pip install -r requirements.txt
 ## Usage
 
 ### Lexical Search (BM25)
+
+![Lexical Search Diagram](images/lexical-search.svg)
+
 ```bash
 python3 lexical_search.py
 ```
 Uses BM25 algorithm for keyword-based document retrieval.
 
 ### Semantic Search (Chroma + Embeddings)
+
+![Semantic Search Diagram](images/semantic-search1.svg)
+
 ```bash
 python3 semantic_search.py
 ```
 Uses vector embeddings to find semantically similar documents.
 
 ### Hybrid Search (Ensemble)
+
+![Hybrid Search Diagram](images/fusion search.svg)
+
 ```bash
 python3 hybrid_search.py
 ```
