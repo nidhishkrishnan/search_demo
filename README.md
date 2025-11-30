@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ### Lexical Search (BM25)
 
 <p align="center">
-  <img src="images/lexical-search.svg" alt="Lexical Search Diagram" width="400"/>
+  <img src="images/lexical.png" alt="Lexical Search Diagram" width="400"/>
 </p>
 
 ```bash
@@ -35,7 +35,7 @@ Uses BM25 algorithm for keyword-based document retrieval.
 ### Semantic Search (Chroma + Embeddings)
 
 <p align="center">
-  <img src="images/semantic-search1.svg" alt="Semantic Search Diagram" width="400"/>
+  <img src="images/semantic.png" alt="Semantic Search Diagram" width="400"/>
 </p>
 
 ```bash
@@ -46,7 +46,7 @@ Uses vector embeddings to find semantically similar documents.
 ### Hybrid Search (Ensemble)
 
 <p align="center">
-  <img src="images/fusion%20search.svg" alt="Hybrid Search Diagram" width="400"/>
+  <img src="images/hybrid.png" alt="Hybrid Search Diagram" width="400"/>
 </p>
 
 ```bash
