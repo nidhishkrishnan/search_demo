@@ -41,7 +41,7 @@ Uses vector embeddings to find semantically similar documents.
 
 ### Hybrid Search (Ensemble)
 
-![Hybrid Search Diagram](images/fusion search.svg)
+![Hybrid Search Diagram](images/fusion%20search.svg)
 
 ```bash
 python3 hybrid_search.py
