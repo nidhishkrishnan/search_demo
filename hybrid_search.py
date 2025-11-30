@@ -1,7 +1,7 @@
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_community.retrievers import BM25Retriever
-from langchain.retrievers import EnsembleRetriever
+from langchain_classic.retrievers import EnsembleRetriever
 from langchain_core.documents import Document
 from data import documents
 
@@ -43,18 +43,27 @@ def retrieve_documents(query):
     return ensemble_retriever.invoke(query)
 
 def generate_answer(query, context_docs):
+    if not context_docs:
+        return "No relevant documents found to answer your question."
+    
     context_text = "\n\n".join([doc.page_content for doc in context_docs])
-    prompt = f"""You are a helpful assistant. Answer the question based ONLY on the following context:
-
-Context:
+    
+    # Use messages format for more reliable responses
+    messages = [
+        ("system", "You are a helpful assistant. Answer questions based ONLY on the provided context."),
+        ("human", f"""Context:
 {context_text}
 
 Question: {query}
 
-Answer:"""
+Provide a clear and concise answer based on the context above.""")
+    ]
     
-    response = llm.invoke(prompt)
-    return response.content
+    try:
+        response = llm.invoke(messages)
+        return response.content if response.content else "Sorry, I couldn't generate an answer."
+    except Exception as e:
+        return f"Error generating answer: {str(e)}"
 
 def main():
     print("--- Hybrid Search Demo (BM25 + Chroma) ---")
